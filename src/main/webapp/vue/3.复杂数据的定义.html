@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  ---------------复杂对象数据定义----------------<br/>
+  姓名:{{user.name}}<br/>
+  id:{{user.id}}<br/>
+  年龄:{{user.age}}<br/>
+  生日:{{user.bir}}<br/>
+  {{user}}<br/>
+  ---------------vue集合数据定义----------------<br/>
+  {{citys}}<br/>
+  {{citys[0]}}<br/>
+  {{citys[1]}}<br/>
+  {{citys[2]}}<br/>
+
+  ---------------vue集合数据定义----------------<br/>
+  {{list}}<br/>
+  {{list[0].id}}</br>
+  {{list[1].age}}</br>
+  {{list[2].name}}</br>
+
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  /*创建一个vue实例*/
+  var vue = new Vue({
+    el:"#app",
+    data:{
+      msg:"vue复杂数据的定义",
+      user:{"id":"123","name":"小可爱","age":21,"bir":"2010-12-12"},
+      citys:["北京","天津","河南"],
+      list:[{"id":"123","name":"小可爱","age":21,"bir":"2010-12-12"},
+        {"id":"123","name":"小可爱","age":21,"bir":"2010-12-12"},
+        {"id":"123","name":"小可爱","age":21,"bir":"2010-12-12"},
+        {"id":"123","name":"小可爱","age":21,"bir":"2010-12-12"},
+      ]
+    }
+  })
+</script>

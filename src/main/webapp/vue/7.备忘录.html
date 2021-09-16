@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+        <div id="app">
+            查看: <ul v-show="items.length>0">
+            <!--遍历数据-->
+            <li v-for="item,index in items">{{index+1}}.{{item}}
+                <a href="#" @click="deleteItem(index)">删除</a></li>
+        </ul>
+            请输入备忘录:<input type="text" v-model="content"><input type="button" @click="saveItem" value="提交">
+        </div>
+
+</body>
+</html>
+
+<!--引用vue-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    <!--创建一个vue-->
+    var vue=new Vue({
+        el:"#app", //el(element):指定vue实体作用范围
+        data:{
+            //指定vue实例携带的一系列数据 可以使用{{}}来取值
+            content:"",
+            items:["今天天气很不错","今天中午吃饺子"]
+        },
+        methods:{
+            saveItem(){
+                //获得输入框提交的数据
+                var content=this.content;
+                //将数据存到集合
+                this.items.push(content);
+                //清空输入框
+                this.content="";
+            },
+            deleteItem(index){
+                this.items.splice(index,1)
+            }
+        }
+    })
+</script>

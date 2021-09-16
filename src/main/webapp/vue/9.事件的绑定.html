@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="main">
+      <h2>{{message}}</h2>
+      <h2 v-text="message"></h2>
+      <h2>年龄:{{age}}</h2><br/>
+      <input type="button" value="点击我改变年龄" v-on:click="addAge">
+    </div>
+
+</body>
+</html>
+<!--引用vue-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  <!--创建一个vue-->
+  var vue=new Vue({
+    el:"#main", //el(element):指定vue实体作用范围
+    data:{
+      //指定vue实例携带的一系列数据 可以使用{{}}来取值
+      message:"事件绑定",
+      age:18
+    },
+    methods:{
+      addAge(){
+        this.age=this.age+1;
+      }
+    }
+
+  })
+</script>

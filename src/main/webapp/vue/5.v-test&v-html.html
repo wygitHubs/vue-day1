@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main">
+  <h4>{{content}} hello</h4><br/>
+  <h4 v-text="content">xx</h4><br/>
+  <h4 v-html="content">dd</h4>
+
+  <!--
+  取值方式:{{}} 不会覆盖原标签中的数据
+  v-text="content" ：会出现差值闪烁问题 会替换文本中的内容 不会解释标签
+  v-html:不会替换文本中的内容 会解释标签
+
+  -->
+  <button v-on:click="aa" v-on:mouseover="cc" v-on:mouseout="cc">点击事件</button>
+    <button @dblclick="aa">@绑定事件</button>
+    <button @dblclick="dd(2,'王云')">@绑定事件并传递数据</button>
+</div>
+
+</body>
+</html>
+
+<!--引用vue-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  <!--创建一个vue-->
+  var vue=new Vue({
+    el:"#main", //el(element):指定vue实体作用范围
+    data:{
+      //指定vue实例携带的一系列数据 可以使用{{}}来取值
+      message:"hello 2106",
+      content:"王云 嘻嘻哈哈",
+    },
+    methods:{
+      aa(){
+        alert("嘻嘻哈哈");
+      },
+        cc(){
+            alert(this.content)
+        },
+        dd(id,name){
+          alert(id+name);
+        }
+    }
+  })
+</script>

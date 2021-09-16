@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>{{msg}}</h2>
+    <login :username="name" :ages="age"></login>
+</div>
+
+</body>
+</html>
+<script>
+    let login={
+        template:'<div><h2>欢迎: {{ username }} 年龄:{{ ages }}</h2></div>',
+        props:['username','ages']
+    }
+    const vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"vue数据传递之动态数据",
+            name:"张三丰",
+            age:19
+        },
+        components:{
+            login
+        }
+    })
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue中组件定义数据和事件使用</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+</div>
+</body>
+</html>
+<script>
+  const vue = new Vue({
+      el:"#app",
+      data:{
+          msg:"嘻嘻哈哈"
+      },
+      methods:{},
+      computed:{},
+      created(){},
+  })
+</script>

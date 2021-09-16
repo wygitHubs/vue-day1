@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+      <h1>{{message}}</h1>
+
+      <table border="1">
+        <tr>
+        <th>ID:</th>
+        <th>名称:</th>
+        <th>价格:</th>
+        <th>数量:</th>
+        <th>小计:</th>
+        <th>操作:</th>
+        </tr>
+        <!--遍历集合-->
+        <tr v-for="(item,index) in items">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+        <!--添加购物车-->
+          <td><input @click="subCount(index)" type="button" value="-"/>{{item.count}}<input @click="addCount(index)" type="button" value="+"/></td>
+          <td>{{item.price*item.count}}</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+      </table>
+      <h2>总价格:{{ totalPrice() }}</h2>
+    </div>
+
+</body>
+</html>
+<!--引用vue-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  <!--创建一个vue-->
+  var vue=new Vue({
+    el:"#app", //el(element):指定vue实体作用范围
+    data:{
+      //指定vue实例携带的一系列数据 可以使用{{}}来取值
+      message:"购物车",
+      items:[
+        {"id":"1","name":"苹果","price":12.5,"count":2},
+        {"id":"2","name":"香蕉","price":8,"count":6},
+        {"id":"3","name":"李子","price":5,"count":6},
+        {"id":"4","name":"苹果","price":4,"count":2}
+      ]
+    },
+    methods:{
+      subCount(index){
+        //判断数量
+        if(this.items[index].count==1){
+          alert("商品数量不能小于1")
+        }else {
+          var indexs = this.items[index];
+          indexs.count--;
+        }
+      },
+      addCount(index){
+        this.items[index].count++;
+      },
+      totalPrice(){
+        var totalPrice=0;
+        for(var i=0;i<this.items.length;i++){
+          totalPrice+=this.items[i].count*this.items[i].price;
+        }
+        //返回计算结果  保留两位小数
+        return totalPrice.toFixed(2);
+      }
+    }
+  })
+</script>

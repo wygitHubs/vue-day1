@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main">
+    <!--.stop    停止
+	.prevent 阻止
+	.self    独自
+	.once    一次
+	-->
+    <h2>{{message}}</h2>
+    <!--stop 用来阻止事件冒泡-->
+    <div class="aa" @click="divClick" style="background-color: red">
+
+        <input type="button" value="按钮" @click.stop="btnClick">
+    </div>
+</div>
+
+</body>
+</html>
+
+<!--引用vue-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    <!--创建一个vue-->
+    var vue=new Vue({
+        el:"#main", //el(element):指定vue实体作用范围
+        data:{
+            //指定vue实例携带的一系列数据 可以使用{{}}来取值
+            message:"事件修饰符的使用",
+        },
+        methods:{
+            divClick(){
+                alert("div事件被触发!")
+            },
+            btnClick(){
+                alert("btn事件被触发!")
+            }
+        }
+    })
+</script>

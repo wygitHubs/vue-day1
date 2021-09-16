@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    {{msg}}<br/>
+    <span>{{msg}}</span>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    /*创建一个vue实例*/
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"vue数据的定义",
+        }
+    })
+</script>

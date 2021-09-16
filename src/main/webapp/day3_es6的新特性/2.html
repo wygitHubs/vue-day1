@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    {{user}}
+</div>
+</body>
+</html>
+<script>
+    var wm= new Vue({
+        el:"#app",
+        data:{
+            message:"es新特性",
+            user:{}
+        },created(){
+            axios.post("http://localhost:8989/axios/user/add",{
+                id:"xiaochen",
+                age:23,
+                name:"小黑",
+                bir:"2012-12-12"}).then((res)=>{
+               this.user=res.data
+            })
+        }
+    })
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+        <div id="app">
+            <h2>{{msg}}</h2>
+            <login user-name="小陈" age="23"></login>
+        </div>
+</body>
+</html>
+<script>
+    let login={
+        template:"<div><h1>欢迎:{{ userName }} 年龄:{{ age }}</h1></div>",
+        props:['userName','age'] //props作用 用来接收使用组件时通过组件标签传递的数据
+    }
+    const vue = new Vue({
+        el:"#app",
+        data:{
+            msg:"vue静态数据传递"
+        },components: {
+            login//注册组件
+        }
+    })
+</script>

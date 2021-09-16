@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--v-show 用来控制页面是否是展示的 语法:v-show="true\false" 底层是通过控制css给标签添加了一个样式来是div是否展示-->
+<!--v-if 控制页面是否展示 底层是通过直接删除标签-->
+<div id="main">
+    <div v-show="false" id="show" style="width: 100px;height: 100px;background-color: red">aa</div>
+    <div v-if="list>11" id="shows" style="width: 100px;height: 100px;background-color: pink">bb</div>
+<h1>{{message}}</h1>
+    <img :src="photo">
+    <button @click="upphoto()">切换图片</button>
+    <button @click="upphotos()">换回图片</button>
+</div>
+</body>
+</html>
+
+<!--引用vue-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  <!--创建一个vue-->
+  var vue=new Vue({
+    el:"#main", //el(element):指定vue实体作用范围
+    data:{
+      //指定vue实例携带的一系列数据 可以使用{{}}来取值
+      message:"hello 2106",
+        list:18,
+      content:"王云 嘻嘻哈哈",
+        photo:"../img/1.jpg"
+    },
+      methods:{
+          upphoto(){
+              this.photo="../img/微信图片_20210908190007.jpg"
+          },
+          upphotos(){
+              this.photo="../img/../img/1.jpg"
+          }
+      }
+
+  })
+</script>

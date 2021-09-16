@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h2>{{msg}}</h2>
+  <hr>
+  <!--2.使用全局组件  在Vue实例范围内-->
+  <login></login>
+  <!--vue中的组件:
+  全局组件：全局组件注册-->
+</div>
+</body>
+</html>
+<script>
+  //1.开发全局组件
+  Vue.component('login',{
+    template:'<div><h1>用户登录</h1></div>'
+  });
+  const vue=new Vue({
+    el:"#app",
+    data:{
+      msg:"vue中组件的使用"
+    },
+    methods:{},
+    computed:{},
+    created(){},
+  })
+</script>

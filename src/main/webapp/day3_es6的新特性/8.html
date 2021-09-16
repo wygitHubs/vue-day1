@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <h2>{{name}}</h2><br>
+    <hr>
+    <login @aaa="update"></login>
+</div>
+
+
+</body>
+</html>
+
+<script>
+    const login={
+        template:'<div><h2>{{username}}</h2><input type="button" value="点我触发组件中事件" @click="change"></div>',
+        data(){
+            return{
+                username:this.name
+            }
+        },
+        methods: {
+            change(){
+                this.$emit('aaa',"小黑");
+            }
+        },props:['name']
+    }
+    const vue = new Vue({
+        el:"#app",
+        data:{
+            name:"小红"
+        },
+        methods:{
+            update(name){
+                this.name=name
+            }
+        },
+        components:{
+            login
+        },
+        created(){},
+    })
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main">
+  <!--用来阻止事件的默认行为-->
+  <a href="http://www.baizhibest.com/" @click.prevent="aClick">百知教育</a>
+</div>
+</body>
+</html>
+
+<!--引用vue-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  <!--创建一个vue-->
+  var vue=new Vue({
+    el:"#main", //el(element):指定vue实体作用范围
+    data:{
+      //指定vue实例携带的一系列数据 可以使用{{}}来取值
+      message:"prevent事件修饰符的使用",
+    }
+  })
+</script>
